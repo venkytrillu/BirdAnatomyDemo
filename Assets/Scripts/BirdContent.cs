@@ -16,11 +16,6 @@ public class BirdContent : MonoBehaviour
         }
       
     }
-    private void Start()
-    {
-        
-    }
-
 
 
     public void DestoryObject()

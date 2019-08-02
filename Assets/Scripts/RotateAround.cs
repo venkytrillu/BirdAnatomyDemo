@@ -7,8 +7,6 @@ public class RotateAround : MonoBehaviour
     [SerializeField]
     private Transform playerRoot;
     [SerializeField]
-    private VariableJoystick variableJoystickRotate;
-    [SerializeField]
     private bool invert;
 
     [SerializeField]
@@ -46,17 +44,7 @@ public class RotateAround : MonoBehaviour
 
     void LookAround()
     {
-        //for windows
-//#if UNITY_EDITOR
         current_MouseLook = new Vector2(Input.GetAxis("Mouse Y"), -Input.GetAxis("Mouse X"));
-//#endif
-
-        //for Android
-       // if (Application.platform==RuntimePlatform.Android)
-      //  current_MouseLook = new Vector2(variableJoystickRotate.Vertical, -variableJoystickRotate.Horizontal);
-       // else
-        //    current_MouseLook = new Vector2(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"));
-
         look_Angle.x += current_MouseLook.x * sensivity * (invert ? 1f : -1f);
         look_Angle.y += current_MouseLook.y * sensivity ;
 

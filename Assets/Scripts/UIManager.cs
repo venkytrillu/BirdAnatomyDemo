@@ -79,8 +79,8 @@ public class UIManager : MonoBehaviour
         {
            if (Input.GetMouseButtonUp(0) && !isShown)
            {
-              if (hit.transform.gameObject.name == "Eye")
-              {
+                if (hit.transform.gameObject.name == "Eye")
+                {
                     TriggerObject();
                     worldCanvasPanel.GetComponent<BirdContent>().SetReferenceImage(eyeSprite);
                 }
@@ -89,7 +89,7 @@ public class UIManager : MonoBehaviour
                     TriggerObject();
                     worldCanvasPanel.GetComponent<BirdContent>().SetReferenceImage(mouthSprite);
                 }
-                if (hit.transform.gameObject.name == "DownPart")
+                if (hit.transform.gameObject.name == "DownFeature")
                 {
                     TriggerObject();
                     worldCanvasPanel.GetComponent<BirdContent>().SetReferenceImage(downPartSprite);
@@ -99,16 +99,15 @@ public class UIManager : MonoBehaviour
                     TriggerObject();
                     worldCanvasPanel.GetComponent<BirdContent>().SetReferenceImage(wingsSprite);
                 }
-                if (hit.transform.gameObject.name == "Legs" )
+                if (hit.transform.gameObject.name == "Talons" )
                 {
-
                     TriggerObject();
                     worldCanvasPanel.GetComponent<BirdContent>().SetReferenceImage(legsSprite);
                 }
-                
 
-                isShown = true;
-               
+                //isShown = true;
+
+
             }
 
             titleText.GetComponent<TextMesh>().text = hit.transform.gameObject.name;
@@ -124,6 +123,7 @@ public class UIManager : MonoBehaviour
                 print(hitGameObject.name);
                 hitGameObject.GetComponent<MeshRenderer>().material = mat_NoColor;
                 titleText.GetComponent<TextMesh>().text = "";
+                hitGameObject = null;
             }
             
         }
@@ -137,6 +137,7 @@ public class UIManager : MonoBehaviour
         worldCanvasPanel.GetComponent<BirdContent>().title.text = hit.transform.gameObject.name;
         worldCanvasPanel.GetComponent<BirdContent>().desc.text = hit.transform.GetComponent<Text>().text;
         BtnCloseStatus(true);
+        isShown = true;
     }
 
 }// class
